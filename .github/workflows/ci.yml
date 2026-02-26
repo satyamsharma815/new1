@@ -1,1 +1,25 @@
 
+name: CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Hello World
+        run: echo "✅ CI pipeline is running successfully!"
+
+      - name: Verify repository structure
+        run: |
+          echo "Repository contents:"
+          ls -la
+          echo "CI check passed!"
